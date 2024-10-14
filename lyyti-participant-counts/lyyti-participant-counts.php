@@ -223,7 +223,7 @@ class Lyyti_Participant_Counts {
 		}
 
 		$response = $this->lyyti_api_call($public_key, $private_key, "events/{$eid}/participants?status={$status}");
-		if (empty($response['results_count'])) {
+		if (!isset($response['results_count'])) {
 			// TODO: Error handling for unexpected Lyyti API response
 			return 'ERROR_LYYTI_UNEXPECTED_API_RESPONSE';
 		}
